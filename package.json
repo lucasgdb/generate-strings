@@ -1,6 +1,6 @@
 {
   "name": "generate-strings",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Generate random strings, strings with mask and strength passwords with password-strength tester",
   "main": "generate-strings.js",
   "scripts": {

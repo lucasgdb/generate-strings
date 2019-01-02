@@ -1,4 +1,4 @@
-# generate-strings dev branch
+# generate-strings
 Generate random strings, strings with mask and strength passwords
 ============================
 `generate-string` is a string generator that build random strings, strings with mask and passwords with password-strength tester.
@@ -157,4 +157,4 @@ environment, and facilitate only unit testing.)
 
 Contributing
 ------------
-If you'd like to contribute, please fork this repository, make your changes, and then submit a pull-request.
+If you'd like to contribute, please fork this repository, change the default branch typing git checkout dev, make your changes, and then submit a pull-request.

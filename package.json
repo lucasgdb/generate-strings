@@ -6,6 +6,10 @@
   "scripts": {
     "test": "node test.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LucasNaja/generate-strings.git"
+  },
   "keywords": [
     "security",
     "passwords",
@@ -16,6 +20,10 @@
   ],
   "author": "Lucas Naja",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LucasNaja/generate-strings/issues"
+  },
+  "homepage": "https://github.com/LucasNaja/generate-strings#readme",
   "devDependencies": {
     "@zeit/ncc": "^0.8.1"
   }

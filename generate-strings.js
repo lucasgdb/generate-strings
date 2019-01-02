@@ -23,7 +23,8 @@
 
   if (mode === 'random') {
     const length = obj.length === undefined ? 8 : obj.length,
-      characters = upperCases + lowerCases + specials + '_-+^~/?:;><,."\'`' + numbers,
+    characters = (upperCase === true ? upperCases : '') + (lowerCase === true ? lowerCases : '') +
+    (special === true ? specials : '') + (number === true ? numbers : ''),
       strings = []
 
     do {

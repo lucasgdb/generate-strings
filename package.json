@@ -1,0 +1,22 @@
+{
+  "name": "generate-strings",
+  "version": "1.0.0",
+  "description": "Generate random strings, strings with mask and strength passwords with password-strength tester",
+  "main": "generate-strings.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "security",
+    "passwords",
+    "strings",
+    "mask",
+    "password-strength",
+    "random"
+  ],
+  "author": "Lucas Naja",
+  "license": "MIT",
+  "devDependencies": {
+    "@zeit/ncc": "^0.8.1"
+  }
+}

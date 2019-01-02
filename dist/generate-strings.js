@@ -40,6 +40,7 @@ module.exports =
 /***/ 977:
 /***/ (function(__unusedmodule, exports) {
 
+'use-strict';
 (function (root, generate) {
   if (typeof define === 'function' && define.amd)
     define([], generate);
@@ -55,7 +56,7 @@ module.exports =
     lowerCase = obj.lowerCase === undefined ? true : obj.lowerCase,
     lowerCases = obj.lowerCases === undefined ? 'abcdefghijklmnopqrstuvwxyz' : obj.lowerCases,
     special = obj.special === undefined ? false : obj.special,
-    specials = obj.specials = undefined ? '!@#$%&*()=[]{}' : obj.specials,
+    specials = obj.specials === undefined ? "!@#$%&*()=[]{}" : obj.specials,
     number = obj.number === undefined ? true : obj.number,
     numbers = obj.numbers === undefined ? '0123456789' : obj.numbers,
     mode = obj.mode === undefined ? 'random' : obj.mode
@@ -65,9 +66,12 @@ module.exports =
 
   if (mode === 'random') {
     const length = obj.length === undefined ? 8 : obj.length,
-    characters = (upperCase === true ? upperCases : '') + (lowerCase === true ? lowerCases : '') +
-    (special === true ? specials : '') + (number === true ? numbers : ''),
+      characters = (upperCase === true ? upperCases : '') + (lowerCase === true ? lowerCases : '') +
+      (special === true ? specials : '') + (number === true ? numbers : ''),
       strings = []
+
+    if (characters === '')
+      throw new Error('You must set at least 1 character type for generate a random string')
 
     do {
       for (let i = 0; i < length; i++)
@@ -87,18 +91,33 @@ module.exports =
       (special === true ? specials : '') + (number === true ? numbers : ''),
       password = []
 
+    if (characters === '')
+      throw new Error('You must set at least 1 character type for generate a password')
+
     if (length < 6)
       throw new Error('Length should be > 5')
 
     do {
-      if (firstCharType === 'upperCase')
+      if (firstCharType === 'upperCase') {
+        if (upperCases === '')
+            throw new Error('Set at least 1 character for upperCase')
         str += upperCases[parseInt(Math.random() * upperCases.length)]
-      else if (firstCharType === 'lowerCase')
+      }
+      else if (firstCharType === 'lowerCase') {
+        if (lowerCases === '')
+            throw new Error('Set at least 1 character for lowerCase')
         str += lowerCases[parseInt(Math.random() * lowerCases.length)]
-      else if (firstCharType === 'special')
+      }
+      else if (firstCharType === 'special') {
+        if (specials === '')
+            throw new Error('Set at least 1 character for special')
         str += specials[parseInt(Math.random() * specials.length)]
-      else if (firstCharType === 'number')
+      }
+      else if (firstCharType === 'number') {
+        if (numbers === '')
+            throw new Error('Set at least 1 character for number')
         str += numbers[parseInt(Math.random() * numbers.length)]
+      }
       else str += characters[parseInt(Math.random() * characters.length)]
 
       for (let i = 0; i < length - 1; i++) {
@@ -131,15 +150,27 @@ module.exports =
 
     do {
       for (let i = 0; i < mask.length; i++)
-        if (mask[i] === '@')
+        if (mask[i] === '@') {
+          if (upperCases === '')
+            throw new Error('Set at least 1 character for upperCases')
           str += upperCases[parseInt(Math.random() * upperCases.length)]
-      else if (mask[i] === '#')
-        str += lowerCases[parseInt(Math.random() * lowerCases.length)]
-      else if (mask[i] === '$')
-        str += specials[parseInt(Math.random() * specials.length)]
-      else if (mask[i] === '%')
-        str += numbers[parseInt(Math.random() * numbers.length)]
-      else str += mask[i]
+        }
+        else if (mask[i] === '#') {
+          if (lowerCases === '')
+            throw new Error('Set at least 1 character for lowerCases')
+          str += lowerCases[parseInt(Math.random() * lowerCases.length)]
+        }
+        else if (mask[i] === '$') {
+          if (specials === '')
+            throw new Error('Set at least 1 character for specials')
+          str += specials[parseInt(Math.random() * specials.length)]
+        }
+        else if (mask[i] === '%') {
+          if (numbers === '')
+            throw new Error('Set at least 1 character for numbers')
+          str += numbers[parseInt(Math.random() * numbers.length)]
+        }
+        else str += mask[i]
 
       strings.push(str)
       str = ''

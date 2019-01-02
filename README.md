@@ -81,26 +81,14 @@ const settings = {
   mode: 'random',
   // set the mode. Allows "random", "mask" and "password"
 
-  upperCase: true,
-  // set a boolean value to generate strings with upperCase characters
-
   upperCases: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
   // upperCases characters
-
-  lowerCase: true,
-  // set a boolean value to generate strings with lowerCase characters
 
   lowerCases: 'abcdefghijklmnopqrstuvwxyz',
   // lowerCase characters
 
-  special: false,
-  // set a boolean value to generate strings with special characters
-
   specials: '!@#$%&*()=[]{}',
   // special characters
-
-  number: true,
-  // set a boolean value to generate strings with numbers
 
   numbers: '0123456789',
   // numbers
@@ -113,6 +101,18 @@ const settings = {
   length: 8,
   // length of the strings
 
+  upperCase: true,
+  // set a boolean value to generate strings with upperCase characters
+
+  lowerCase: true,
+  // set a boolean value to generate strings with lowerCase characters
+
+  special: false,
+  // set a boolean value to generate strings with special characters
+
+  number: true,
+  // set a boolean value to generate strings with numbers
+
   /*
   *************************************************
   Settings for password mode
@@ -120,7 +120,7 @@ const settings = {
   */
   showStrength: false,
   // Shows the password strength
-  //like: strength: high. Possible results: unacceptable, terrible, medium, good and high.
+  // like: strength: high. Possible results: unacceptable, terrible, medium, good and high.
 
   firstCharType: 'random',
   // set the type of first character when generate a password

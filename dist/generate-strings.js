@@ -101,7 +101,7 @@ module.exports =
         str += numbers[parseInt(Math.random() * numbers.length)]
       else str += characters[parseInt(Math.random() * characters.length)]
 
-      for (let i = 0; i < length; i++) {
+      for (let i = 0; i < length - 1; i++) {
         let char = characters[parseInt(Math.random() * characters.length)]
 
         while (str[i] === char)

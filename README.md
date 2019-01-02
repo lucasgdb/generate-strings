@@ -157,4 +157,4 @@ environment, and facilitate only unit testing.)
 
 Contributing
 ------------
-If you'd like to contribute, please fork this repository, make your changes, and then submit a pull-request.
+If you'd like to contribute, please fork this repository, type git checkout dev and make your changes, and then submit a pull-request.

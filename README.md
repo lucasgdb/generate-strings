@@ -19,7 +19,7 @@ npm install generate-strings --save
 Within your document:
 
 ```html
-<script src='generate-strings.js'></script>
+<script src="generate-strings.js"></script>
 ```
 
 Features

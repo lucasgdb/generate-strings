@@ -46,10 +46,10 @@ After you've included it into your project, using the module is straightforward:
 ### Server-side
 ```javascript
 // require the module
-const str = require('generate-strings');
+const str = require('generate-strings')
 
 // invoke generate() to generate a random string
-const string = str.generate(/* settings into object */)
+let string = str.generate(/* settings into object */)
 
 // shows the result
 console.log(string) // something like ,9nlg4^]
@@ -58,7 +58,7 @@ console.log(string) // something like ,9nlg4^]
 ### In-browser
 ```javascript
 // in the browser, including the script will make a generate() function available.
-const str = generate() // will return a string
+let str = generate() // will return a string
 ```
 
 Configuring
@@ -66,32 +66,32 @@ Configuring
 The module may be configured as follows:
 
 ```javascript
-const str = require('generate-strings');
+const str = require('generate-strings')
 
 // Pass a hash of settings into an object. The settings shown here are the defaults.
-const settings = {
+let settings = {
   /*
   *************************************************
   Settings for all modes
   *************************************************
   */
   amount: 1,
-  // set the amount of strings to generate
+  // Number, set the amount of strings to generate
 
   mode: 'random',
-  // set the mode. Allows "random", "mask" and "password"
+  // String, set the mode. Allows "random", "mask" and "password"
 
   upperCases: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-  // upperCases characters
+  // String, upperCases characters that will be generated
 
   lowerCases: 'abcdefghijklmnopqrstuvwxyz',
-  // lowerCase characters
+  // String, lowerCase characters that will be generated
 
   specials: '!@#$%&*()=[]{}',
-  // special characters
+  // String, special characters that will be generated
 
   numbers: '0123456789',
-  // numbers
+  // String, numbers that will be generated
 
   /*
   *************************************************
@@ -99,19 +99,20 @@ const settings = {
   **************************************************
   */
   length: 8,
-  // length of the strings
+  // Number, length of the strings
+  // when mode is password, must be > 1
 
   upperCase: true,
-  // set a boolean value to generate strings with upperCase characters
+  // Boolean, set a boolean value to generate strings with upperCase characters
 
   lowerCase: true,
-  // set a boolean value to generate strings with lowerCase characters
+  // Boolean, set a boolean value to generate strings with lowerCase characters
 
   special: false,
-  // set a boolean value to generate strings with special characters
+  // Boolean, set a boolean value to generate strings with special characters
 
   number: true,
-  // set a boolean value to generate strings with numbers
+  // Boolean, set a boolean value to generate strings with numbers
 
   /*
   *************************************************
@@ -119,32 +120,49 @@ const settings = {
   *************************************************
   */
   showStrength: false,
-  // Shows the password strength
+  // Boolean, shows the password strength
   // like: strength: high. Possible results: unacceptable, terrible, medium, good and high.
 
   firstCharType: 'random',
-  // set the type of first character when generate a password
+  // String, set the type of first character when generate a password
   // 'random' - random type
   // 'upperCase' - to upperCase character
   // 'lowerCase' - to lowerCase character
   // 'special' - to special character
   // 'number' - to number
 
+  excludeEqualChars: true,
+  // Boolean, exclude characters that are equals
+  // E.g: aa, AA, @@, 00
+
   /*
   *************************************************
   Settings for mask mode
   *************************************************
   */
-  mask: '@#$%-@#$%-@#$%-@#$%' // mask of string
+  mask: '@#$%-@#$%-@#$%-@#$%',
+  // String, mask to generate the strings
   // @ - to upperCase characters
   // # - to lowerCase characters
   // $ - to special characters
   // % - to numbers
   // others: no will be changed
+
+  upperCaseMask: '@',
+  // String, must be 1 character
+
+  lowerCaseMask: '#',
+  // String, must be 1 character
+
+  specialMask: '$',
+  // String, must be 1 character
+
+  numberMask: '%'
+  // String, must be 1 character
 }
 
 // and then:
-const string = str.generate(settings)
+let string = str.generate(settings)
 ```
 
 Testing
@@ -154,7 +172,6 @@ may first need to run `npm install` to install the required development
 dependencies. (These dependencies are **not** required in a production
 environment, and facilitate only unit testing.)
 
-
 Contributing
 ------------
-If you'd like to contribute, please fork this repository, change the default branch typing git checkout dev, make your changes, and then submit a pull-request.
+If you'd like to contribute, please fork this repository, change the default branch typing git checkout dev, make your changes, make a new branch and then submit a pull-request.

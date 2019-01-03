@@ -1,4 +1,3 @@
-'use-strict';
 (function (root, generate) {
   if (typeof define === 'function' && define.amd)
     define([], generate);
@@ -20,7 +19,7 @@
     mode = obj.mode === undefined ? 'random' : obj.mode
 
   if (!(amount > 0))
-    throw new Error('Amount should be > 0')
+    throw new Error('Amount must be > 0')
 
   if (mode === 'random') {
     const length = obj.length === undefined ? 8 : obj.length,
@@ -45,6 +44,7 @@
     const length = obj.length === undefined ? 8 : obj.length,
       showStrength = obj.showStrength === undefined ? false : obj.showStrength,
       firstCharType = obj.firstCharType === undefined ? 'random' : obj.firstCharType,
+      excludeEqualChars = obj.excludeEqualChars === undefined ? true : obj.excludeEqualChars,
       characters = (upperCase === true ? upperCases : '') + (lowerCase === true ? lowerCases : '') +
       (special === true ? specials : '') + (number === true ? numbers : ''),
       password = []
@@ -52,8 +52,8 @@
     if (characters === '')
       throw new Error('You must set at least 1 character type for generate a password')
 
-    if (length < 6)
-      throw new Error('Length should be > 5')
+    if (length < 1)
+      throw new Error('Length must be > 1')
 
     do {
       if (firstCharType === 'upperCase') {
@@ -81,8 +81,9 @@
       for (let i = 0; i < length - 1; i++) {
         let char = characters[parseInt(Math.random() * characters.length)]
 
-        while (str[i] === char)
-          char = characters[parseInt(Math.random() * characters.length)]
+        if (excludeEqualChars)
+          while (str[i] === char)
+            char = characters[parseInt(Math.random() * characters.length)]
 
         str += char
       }
@@ -101,29 +102,41 @@
     return password.length === 1 ? password[0] : password
   } else if (mode === 'mask') {
     const mask = obj.mask === undefined ? '@#$%-@#$%-@#$%-@#$%' : obj.mask,
+      upperCaseMask = obj.upperCaseMask === undefined ? '@' : obj.upperCaseMask,
+      lowerCaseMask = obj.lowerCaseMask === undefined ? '#' : obj.lowerCaseMask,
+      specialMask = obj.specialMask === undefined ? '$' : obj.specialMask,
+      numberMask = obj.numberMask === undefined ? '%' : obj.numberMask,
       strings = []
 
     if (mask.length === 0)
       throw new Error('Mask wrong. Please do something like "@#$%-@#$%-#@$%-@#$%"')
+    else if (upperCaseMask === '' || upperCaseMask.length > 1)
+      throw new Error('upperCaseMask must have only 1 character')
+    else if (lowerCaseMask === '' || lowerCaseMask.length > 1)
+      throw new Error('lowerCaseMask must have only 1 character')
+    else if (specialMask === '' || specialMask.length > 1)
+      throw new Error('specialMask must have only 1 character')
+    else if (numberMask === '' || numberMask.length > 1)
+      throw new Error('numberMask must have only 1 character')
 
     do {
       for (let i = 0; i < mask.length; i++)
-        if (mask[i] === '@') {
+        if (mask[i] === upperCaseMask) {
           if (upperCases === '')
             throw new Error('Set at least 1 character for upperCases')
           str += upperCases[parseInt(Math.random() * upperCases.length)]
         }
-        else if (mask[i] === '#') {
+        else if (mask[i] === lowerCaseMask) {
           if (lowerCases === '')
             throw new Error('Set at least 1 character for lowerCases')
           str += lowerCases[parseInt(Math.random() * lowerCases.length)]
         }
-        else if (mask[i] === '$') {
+        else if (mask[i] === specialMask) {
           if (specials === '')
             throw new Error('Set at least 1 character for specials')
           str += specials[parseInt(Math.random() * specials.length)]
         }
-        else if (mask[i] === '%') {
+        else if (mask[i] === numberMask) {
           if (numbers === '')
             throw new Error('Set at least 1 character for numbers')
           str += numbers[parseInt(Math.random() * numbers.length)]

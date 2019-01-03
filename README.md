@@ -19,7 +19,7 @@ npm install generate-strings --save
 Within your document:
 
 ```html
-<script src='generate-strings.js'></script>
+<script src="generate-strings.js"></script>
 ```
 
 Features
@@ -76,22 +76,22 @@ const settings = {
   *************************************************
   */
   amount: 1,
-  // set the amount of strings to generate
+  // Number, set the amount of strings to generate
 
   mode: 'random',
-  // set the mode. Allows "random", "mask" and "password"
+  // String, set the mode. Allows "random", "mask" and "password"
 
   upperCases: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-  // upperCases characters
+  // String, upperCases characters that will be generated
 
   lowerCases: 'abcdefghijklmnopqrstuvwxyz',
-  // lowerCase characters
+  // String, lowerCase characters that will be generated
 
   specials: '!@#$%&*()=[]{}',
-  // special characters
+  // String, special characters that will be generated
 
   numbers: '0123456789',
-  // numbers
+  // String, numbers that will be generated
 
   /*
   *************************************************
@@ -99,19 +99,20 @@ const settings = {
   **************************************************
   */
   length: 8,
-  // length of the strings
+  // Number, length of the strings
+  // when mode is password, must be > 1
 
   upperCase: true,
-  // set a boolean value to generate strings with upperCase characters
+  // Boolean, set a boolean value to generate strings with upperCase characters
 
   lowerCase: true,
-  // set a boolean value to generate strings with lowerCase characters
+  // Boolean, set a boolean value to generate strings with lowerCase characters
 
   special: false,
-  // set a boolean value to generate strings with special characters
+  // Boolean, set a boolean value to generate strings with special characters
 
   number: true,
-  // set a boolean value to generate strings with numbers
+  // Boolean, set a boolean value to generate strings with numbers
 
   /*
   *************************************************
@@ -119,28 +120,45 @@ const settings = {
   *************************************************
   */
   showStrength: false,
-  // Shows the password strength
+  // Boolean, shows the password strength
   // like: strength: high. Possible results: unacceptable, terrible, medium, good and high.
 
   firstCharType: 'random',
-  // set the type of first character when generate a password
+  // String, set the type of first character when generate a password
   // 'random' - random type
   // 'upperCase' - to upperCase character
   // 'lowerCase' - to lowerCase character
   // 'special' - to special character
   // 'number' - to number
 
+  excludeEqualChars: true,
+  // Boolean, exclude characters that are equals
+  // E.g: aa, AA, @@, 00
+
   /*
   *************************************************
   Settings for mask mode
   *************************************************
   */
-  mask: '@#$%-@#$%-@#$%-@#$%' // mask of string
+  mask: '@#$%-@#$%-@#$%-@#$%',
+  // String, mask to generate the strings
   // @ - to upperCase characters
   // # - to lowerCase characters
   // $ - to special characters
   // % - to numbers
   // others: no will be changed
+
+  upperCaseMask: '@',
+  // String, must be 1 character
+
+  lowerCaseMask: '#',
+  // String, must be 1 character
+
+  specialMask: '$',
+  // String, must be 1 character
+
+  numberMask: '%'
+  // String, must be 1 character
 }
 
 // and then:

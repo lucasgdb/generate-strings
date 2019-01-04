@@ -80,7 +80,7 @@ let string = str.generate(settings)
 
 ### Available options for all threee modes (**random, password, mask**)
 
-|    Name    |  Type   |                Description                 |         Default Value        |        Allowed values        |
+|    Name    |  Type   |                Description                 |         Default value        |        Allowed values        |
 |------------|---------|--------------------------------------------|------------------------------|------------------------------|
 | amount     | Integer | Amount of strings to generate              | 1                            | 0-Number.MAX_SAFE_INTEGER    |
 | mode       | String  | Different modes to generate a string       | 'random'                     | 'random', 'mask', 'password' |
@@ -91,7 +91,7 @@ let string = str.generate(settings)
 
 ### Available options for both **random and password** modes
 
-|   Name    |  Type   |                Description                 | Default Value |       Allowed values      |
+|   Name    |  Type   |                Description                 | Default value |       Allowed values      |
 |-----------|---------|--------------------------------------------|---------------|---------------------------|
 | length    | Integer | Size of the strings that will be generated | 8             | 0-Number.MAX_SAFE_INTEGER |
 | upperCase | Boolean | Determines whether it will be generated    | true          | true and false            |
@@ -101,7 +101,7 @@ let string = str.generate(settings)
 
 ### Available options for **password** mode
 
-|        Name       |  Type   |               Description              | Default Value |                      Allowed values                     |
+|        Name       |  Type   |               Description              | Default value |                      Allowed values                     |
 |-------------------|---------|----------------------------------------|---------------|---------------------------------------------------------|
 | showStrength      | Boolean | Shows the password strength            | false         | true and false                                          |
 | firstCharType     | String  | Determines the type of first character | 'random'      | 'random', 'upperCase', 'lowerCase', 'special', 'number' |
@@ -109,7 +109,7 @@ let string = str.generate(settings)
 
 ### Available options for **mask** mode
 
-|     Name      |  Type  |                  Description                  |     Default Value     | Allowed values |
+|     Name      |  Type  |                  Description                  |     Default value     | Allowed values |
 |---------------|--------|-----------------------------------------------|-----------------------|----------------|
 | mask          | String | Mask to string that will be generated         | '@#$%-@#$%-@#$%-@#$%' | *              |
 | upperCaseMask | String | Letter that will be replaced a upperCase char | '@'                   | '*'            |

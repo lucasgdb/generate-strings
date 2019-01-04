@@ -1,6 +1,6 @@
 {
   "name": "generate-strings",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Generate random strings, strings with mask and strength passwords with password-strength tester",
   "main": "generate-strings.js",
   "scripts": {
@@ -20,7 +20,7 @@
     "front-end",
     "backend",
     "generate",
-    "strings-manipulation"
+    "string-manipulation"
   ],
   "author": "Lucas Naja <lucasnaja0@gmail.com> (https://lucasnaja.github.io/portfolio)",
   "license": "MIT",

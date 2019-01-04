@@ -22,7 +22,7 @@
     "generate",
     "strings-manipulation"
   ],
-  "author": "Lucas Naja",
+  "author": "Lucas Naja <lucasnaja0@gmail.com> (https://lucasnaja.github.io/portfolio)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/LucasNaja/generate-strings/issues"

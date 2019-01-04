@@ -175,4 +175,4 @@ environment, and facilitate only unit testing.)
 
 Contributing
 ------------
-If you'd like to contribute, please fork this repository, make your changes, and then submit a pull-request.
+If you'd like to contribute, please fork this repository, make a new branch typing `git checkout -b branchName`, make your changes, make a push typing `git push -u origin branchName` and then submit a pull-request.

@@ -2,9 +2,12 @@
 Generate random strings, strings with mask and strength passwords
 ============================
 `generate-string` is a string generator that build random strings, strings with mask and passwords with password-strength tester.
-It is lightweight, extensible, has no dependencies, and can be used on the server with NodeJS or in-browser with JavaScript.
+It is lightweight, extensible, has no dependencies, and can be used on the server with NodeJS or in-browser with JS.
 
 [![Build Status](https://travis-ci.com/LucasNaja/generate-strings.svg?branch=master)](https://travis-ci.com/LucasNaja/generate-strings)
+
+[![Generate-Strings NPM](https://nodei.co/npm/generate-strings.png?downloads=true&downloadRank=true)](http://npmjs.org/package/generate-strings)
+
 
 Installing
 ----------
@@ -42,128 +45,77 @@ Features
 Usage
 -----
 After you've included it into your project, using the module is straightforward:
+#### `generate({options})`
 
 ### Server-side
 ```javascript
 // require the module
-const str = require('generate-strings');
+const str = require('generate-strings')
 
-// invoke generate() to generate a random string
-const string = str.generate(/* settings into object */)
-
-// shows the result
-console.log(string) // something like ,9nlg4^]
+console.log(str.generate())
 ```
 
 ### In-browser
 ```javascript
 // in the browser, including the script will make a generate() function available.
-const str = generate() // will return a string
+console.log(generate())
 ```
 
 Configuring
 -----------
 The module may be configured as follows:
+OBS: The settings shown below are the defaults.
 
 ```javascript
-const str = require('generate-strings');
+const str = require('generate-strings')
 
-// Pass a hash of settings into an object. The settings shown here are the defaults.
-const settings = {
-  /*
-  *************************************************
-  Settings for all modes
-  *************************************************
-  */
-  amount: 1,
-  // Number, set the amount of strings to generate
-
-  mode: 'random',
-  // String, set the mode. Allows "random", "mask" and "password"
-
-  upperCases: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-  // String, upperCases characters that will be generated
-
-  lowerCases: 'abcdefghijklmnopqrstuvwxyz',
-  // String, lowerCase characters that will be generated
-
-  specials: '!@#$%&*()=[]{}',
-  // String, special characters that will be generated
-
-  numbers: '0123456789',
-  // String, numbers that will be generated
-
-  /*
-  *************************************************
-  Settings for random string and password modes
-  **************************************************
-  */
-  length: 8,
-  // Number, length of the strings
-  // when mode is password, must be > 1
-
-  upperCase: true,
-  // Boolean, set a boolean value to generate strings with upperCase characters
-
-  lowerCase: true,
-  // Boolean, set a boolean value to generate strings with lowerCase characters
-
-  special: false,
-  // Boolean, set a boolean value to generate strings with special characters
-
-  number: true,
-  // Boolean, set a boolean value to generate strings with numbers
-
-  /*
-  *************************************************
-  Settings for password mode
-  *************************************************
-  */
-  showStrength: false,
-  // Boolean, shows the password strength
-  // like: strength: high. Possible results: unacceptable, terrible, medium, good and high.
-
-  firstCharType: 'random',
-  // String, set the type of first character when generate a password
-  // 'random' - random type
-  // 'upperCase' - to upperCase character
-  // 'lowerCase' - to lowerCase character
-  // 'special' - to special character
-  // 'number' - to number
-
-  excludeEqualChars: true,
-  // Boolean, exclude characters that are equals
-  // E.g: aa, AA, @@, 00
-
-  /*
-  *************************************************
-  Settings for mask mode
-  *************************************************
-  */
-  mask: '@#$%-@#$%-@#$%-@#$%',
-  // String, mask to generate the strings
-  // @ - to upperCase characters
-  // # - to lowerCase characters
-  // $ - to special characters
-  // % - to numbers
-  // others: no will be changed
-
-  upperCaseMask: '@',
-  // String, must be 1 character
-
-  lowerCaseMask: '#',
-  // String, must be 1 character
-
-  specialMask: '$',
-  // String, must be 1 character
-
-  numberMask: '%'
-  // String, must be 1 character
+// Pass a hash of settings into an object.
+let settings = {
+  // available settings will be shown below
 }
 
 // and then:
-const string = str.generate(settings)
+let string = str.generate(settings)
 ```
+
+### Available options for all threee modes (**random, password, mask**)
+
+|    Name    |  Type   |                Description                 |         Default value        |        Allowed values        |
+|------------|---------|--------------------------------------------|------------------------------|------------------------------|
+| amount     | Integer | Amount of strings to generate              | 1                            | 0-Number.MAX_SAFE_INTEGER    |
+| mode       | String  | Different modes to generate a string       | 'random'                     | 'random', 'mask', 'password' |
+| upperCases | String  | UpperCase letters to be generate           | 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' | 'A-Z'                        |
+| lowerCases | String  | LowerCase letters to be generate           | 'abcdefghijklmnopqrstuvwxyz' | 'a-z'                        |
+| specials   | String  | Special letters to be generate             | '!@#$%&*()=[]{}'             | All special characters       |
+| numbers    | String  | Numbers to be generate                     | '0123456789'                 | 0-9                          |
+
+### Available options for both **random and password** modes
+
+|   Name    |  Type   |                Description                 | Default value |       Allowed values      |
+|-----------|---------|--------------------------------------------|---------------|---------------------------|
+| length    | Integer | Size of the strings that will be generated | 8             | 0-Number.MAX_SAFE_INTEGER |
+| upperCase | Boolean | Determines whether it will be generated    | true          | true and false            |
+| lowerCase | Boolean | Determines whether it will be generated    | true          | true and false            |
+| special   | Boolean | Determines whether it will be generated    | false         | true and false            |
+| number    | Boolean | Determines whether it will be generated    | true          | true and false            |
+
+### Available options for **password** mode
+
+|        Name       |  Type   |               Description              | Default value |                      Allowed values                     |
+|-------------------|---------|----------------------------------------|---------------|---------------------------------------------------------|
+| showStrength      | Boolean | Shows the password strength            | false         | true and false                                          |
+| firstCharType     | String  | Determines the type of first character | 'random'      | 'random', 'upperCase', 'lowerCase', 'special', 'number' |
+| excludeEqualChars | Boolean | Excludes characters that are equals    | true          | true and false                                          |
+
+### Available options for **mask** mode
+
+|     Name      |  Type  |                  Description                  |     Default value     | Allowed values |
+|---------------|--------|-----------------------------------------------|-----------------------|----------------|
+| mask          | String | Mask to string that will be generated         | '@#$%-@#$%-@#$%-@#$%' | *              |
+| upperCaseMask | String | Letter that will be replaced a upperCase char | '@'                   | '*'            |
+| lowerCaseMask | String | Letter that will be replaced a upperCase char | '#'                   | '*'            |
+| specialMask   | String | Letter that will be replaced a upperCase char | '$'                   | '*'            |
+| numberMask    | String | Letter that will be replaced a upperCase char | '%'                   | '*'            |
 
 Testing
 -------
@@ -171,7 +123,6 @@ To run the test, simply type `cd` into directory and run `npm test`. You
 may first need to run `npm install` to install the required development
 dependencies. (These dependencies are **not** required in a production
 environment, and facilitate only unit testing.)
-
 
 Contributing
 ------------

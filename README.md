@@ -174,4 +174,4 @@ environment, and facilitate only unit testing.)
 
 Contributing
 ------------
-If you'd like to contribute, please fork this repository, change the default branch typing git checkout dev, make a new branch, make your changes, make `git push -u origin branchName` and then submit a pull-request.
+If you'd like to contribute, please fork this repository, change the default branch typing git checkout dev, make a new branch typing `git checkout -b branchName`, make your changes, make `git push -u origin branchName` and then submit a pull-request.

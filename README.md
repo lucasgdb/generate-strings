@@ -78,7 +78,7 @@ let settings = {
 let string = str.generate(settings)
 ```
 
-### Available options for all threee modes (**random, password, mask**)
+### Available options for all three modes (**random, password, mask**)
 
 |    Name    |  Type   |                Description                 |         Default value        |        Allowed values        |
 |------------|---------|--------------------------------------------|------------------------------|------------------------------|
@@ -116,6 +116,35 @@ let string = str.generate(settings)
 | lowerCaseMask | String | Letter that will be replaced a upperCase char | '#'                   | '*'            |
 | specialMask   | String | Letter that will be replaced a upperCase char | '$'                   | '*'            |
 | numberMask    | String | Letter that will be replaced a upperCase char | '%'                   | '*'            |
+
+Examples
+--------
+
+```javascript
+  const str = require('generate-strings')
+
+  let settings = {
+    mode: 'password',
+    length: 12,
+    special: true,
+    showStrength: true,
+    excludeEqualChars: true
+  }
+
+  let pass = str.generate(settings) // will return a random object like: { password: 'T2$he{Yk6pvf', strength: 'high' }
+```
+
+```javascript
+  const str = require('generate-strings')
+
+  let settings = {
+    mode: 'mask',
+    upperCaseMask: '&',
+    mask: '####_####%@hotmail.com'
+  }
+
+  let pass = str.generate(settings) // will return a random string like: ekts_raqm1@hotmail.com
+```
 
 Testing
 -------

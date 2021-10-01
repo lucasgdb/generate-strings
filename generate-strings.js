@@ -220,11 +220,17 @@ function checkStrength(password = String) {
       length -= 30;
       break;
     }
-  }
 
-  if (length < 50) return "unacceptable";
-  else if (length < 60) return "terrible";
-  else if (length < 80) return "medium";
-  else if (length < 100) return "good";
-  else return "high";
+    if (length < 50) {
+      return "unacceptable";
+    } else if (length < 60) {
+      return "terrible";
+    } else if (length < 80) {
+      return "medium";
+    } else if (length < 100) {
+      return "good";
+    } else {
+      return "high";
+    }
+  }
 }

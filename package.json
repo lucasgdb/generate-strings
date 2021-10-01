@@ -20,9 +20,9 @@
     "front-end",
     "backend",
     "generate",
-    "strings-manipulation"
+    "string-manipulation"
   ],
-  "author": "Lucas Naja <lucasnaja0@gmail.com> (https://lucasnaja.github.io/portfolio)",
+  "author": "Lucas Bittencourt <lucasgdbittencourt@gmail.com> (https://lucasbittencourt.dev/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/LucasNaja/generate-strings/issues"

@@ -45,17 +45,16 @@
       getCharsFromConfig(numbers, number);
   }
 
+  const generateStringFromCharacters = (arrayLength, chars) => 
+    [...new Array(arrayLength)].map(() => chars[parseInt(Math.random() * chars.length)]).join('')
+
   if (mode === "random") {
     const length = !config.length ? 8 : config.length;
     const strings = [];
     const characters = getPossibleCharacters();
 
     do {
-      for (let i = 0; i < length; i++)
-        str += characters[parseInt(Math.random() * characters.length)];
-
-      strings.push(str);
-      str = "";
+      strings.push(generateStringFromCharacters(length, characters));
       amount--;
     } while (amount > 0);
 
@@ -112,7 +111,7 @@
       for (let i = 0; i < length - 1; i++) {
         let char = characters[parseInt(Math.random() * characters.length)];
 
-        if (excludeEqualChars) {
+        if (excludeEqualChars) {  
           while (str[i] === char) {
             char = characters[parseInt(Math.random() * characters.length)];
           }

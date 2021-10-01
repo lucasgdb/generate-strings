@@ -27,20 +27,28 @@
     throw new Error("Amount must be > 0");
   }
 
-  if (mode === "random") {
-    const length = !config.length ? 8 : config.length;
-    const strings = [];
-    const characters =
-      (upperCase === true ? upperCases : "") +
-      (lowerCase === true ? lowerCases : "") +
-      (special === true ? specials : "") +
-      (number === true ? numbers : "");
-
-    if (characters === "") {
+  const getPossibleCharacters = () => {
+    if (upperCases === "" &&
+        lowerCases === "" &&
+        specials === "" &&
+        numbers === "") {
       throw new Error(
         "You must set at least 1 character type for generate a random string"
       );
     }
+
+    const getCharsFromConfig = (chars, active) => active === true ? chars : "";
+
+    return getCharsFromConfig(upperCases, upperCase) +
+      getCharsFromConfig(lowerCases, lowerCase) +
+      getCharsFromConfig(specials, special) +
+      getCharsFromConfig(numbers, number);
+  }
+
+  if (mode === "random") {
+    const length = !config.length ? 8 : config.length;
+    const strings = [];
+    const characters = getPossibleCharacters();
 
     do {
       for (let i = 0; i < length; i++)
@@ -64,19 +72,9 @@
       ? true
       : config.excludeEqualChars;
 
-    const characters =
-      (upperCase === true ? upperCases : "") +
-      (lowerCase === true ? lowerCases : "") +
-      (special === true ? specials : "") +
-      (number === true ? numbers : "");
+    const characters = getPossibleCharacters();
 
     const password = [];
-
-    if (characters === "") {
-      throw new Error(
-        "You must set at least 1 character type for generate a password"
-      );
-    }
 
     if (length < 1) {
       throw new Error("Length must be > 1");

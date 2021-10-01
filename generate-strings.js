@@ -23,7 +23,7 @@
   const numbers = !config.numbers ? "0123456789" : config.numbers;
   const mode = !config.mode ? "random" : config.mode;
 
-  if (!amount <= 0) {
+  if (amount <= 0) {
     throw new Error("Amount must be > 0");
   }
 

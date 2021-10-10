@@ -32,54 +32,31 @@ describe('generateRandomPassword', () => {
    });
 
    it('should throw "You must at least 1 character" error', () => {
+      const config = {
+         upperCaseCharacters: '',
+         lowerCaseCharacters: '',
+         specialCharacters: '',
+         numberCharacters: '',
+      };
+
       expect(() => {
-         generateRandomPassword({
-            firstCharType: 'random',
-            upperCaseCharacters: '',
-            lowerCaseCharacters: '',
-            specialCharacters: '',
-            numberCharacters: '',
-         });
+         generateRandomPassword({ firstCharType: 'random', ...config });
       }).toThrowError('You must at least 1 character');
 
       expect(() => {
-         generateRandomPassword({
-            firstCharType: 'upperCase',
-            upperCaseCharacters: '',
-            lowerCaseCharacters: '',
-            specialCharacters: '',
-            numberCharacters: '',
-         });
+         generateRandomPassword({ firstCharType: 'upperCase', ...config });
       }).toThrowError('You must at least 1 character for upperCase');
 
       expect(() => {
-         generateRandomPassword({
-            firstCharType: 'lowerCase',
-            upperCaseCharacters: '',
-            lowerCaseCharacters: '',
-            specialCharacters: '',
-            numberCharacters: '',
-         });
+         generateRandomPassword({ firstCharType: 'lowerCase', ...config });
       }).toThrowError('You must at least 1 character for lowerCase');
 
       expect(() => {
-         generateRandomPassword({
-            firstCharType: 'special',
-            upperCaseCharacters: '',
-            lowerCaseCharacters: '',
-            specialCharacters: '',
-            numberCharacters: '',
-         });
+         generateRandomPassword({ firstCharType: 'special', ...config });
       }).toThrowError('You must at least 1 character for special');
 
       expect(() => {
-         generateRandomPassword({
-            firstCharType: 'number',
-            upperCaseCharacters: '',
-            lowerCaseCharacters: '',
-            specialCharacters: '',
-            numberCharacters: '',
-         });
+         generateRandomPassword({ firstCharType: 'number', ...config });
       }).toThrowError('You must at least 1 character for number');
    });
 });

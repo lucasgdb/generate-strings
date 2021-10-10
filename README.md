@@ -3,9 +3,7 @@
 # Generate random strings, strings with mask and strength passwords
 
 `generate-string` is a string generator that build random strings, strings with mask and passwords with password-strength tester.
-It is lightweight, extensible, has no dependencies, and can be used on the server with NodeJS or in-browser with JS.
-
-[![Build Status](https://travis-ci.com/LucasNaja/generate-strings.svg?branch=master)](https://travis-ci.com/LucasNaja/generate-strings)
+It is lightweight, extensible, has no dependencies, typescript support and can be used on the server with NodeJS or in-browser with JS.
 
 [![Generate-Strings NPM](https://nodei.co/npm/generate-strings.png?downloads=true&downloadRank=true)](http://npmjs.org/package/generate-strings)
 
@@ -57,7 +55,7 @@ After you've included it into your project, using the module is straightforward:
 
 ```javascript
 // require the module
-const str = require("generate-strings");
+const str = require('generate-strings');
 
 console.log(str.generate());
 ```
@@ -75,11 +73,11 @@ The module may be configured as follows:
 OBS: The settings shown below are the defaults.
 
 ```javascript
-const str = require("generate-strings");
+const str = require('generate-strings');
 
 // Pass a hash of settings into an object.
 const settings = {
-  // available settings will be shown below
+   // available settings will be shown below
 };
 
 // and then:
@@ -128,26 +126,26 @@ const string = str.generate(settings);
 ## Examples
 
 ```javascript
-const str = require("generate-strings");
+const str = require('generate-strings');
 
 const settings = {
-  mode: "password",
-  length: 12,
-  special: true,
-  showStrength: true,
-  excludeEqualChars: true,
+   mode: 'password',
+   length: 12,
+   special: true,
+   showStrength: true,
+   excludeEqualChars: true,
 };
 
 const pass = str.generate(settings); // will return a random object like: { password: 'T2$he{Yk6pvf', strength: 'high' }
 ```
 
 ```javascript
-const str = require("generate-strings");
+const str = require('generate-strings');
 
 const settings = {
-  mode: "mask",
-  upperCaseMask: "&",
-  mask: "####_####%@hotmail.com",
+   mode: 'mask',
+   upperCaseMask: '&',
+   mask: '####_####%@hotmail.com',
 };
 
 const pass = str.generate(settings); // will return a random string like: ekts_raqm1@hotmail.com

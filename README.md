@@ -1,4 +1,4 @@
-# generate-strings dev branch
+# generate-strings branch
 
 # Generate random strings, strings with mask and strength passwords
 
@@ -57,7 +57,11 @@ or
 
 After you've included it into your project, using the module is straightforward:
 
-#### `generate({options})`
+#### `generateRandomString(options)`
+
+#### `generateRandomStringWithMask(options)`
+
+#### `generateRandomPassword(options)`
 
 ### Server-side
 
@@ -165,6 +169,13 @@ const settings = {
 const pass = generateRandomStringWithMask(settings); // will return a random string like: ekts_raqm1@hotmail.com
 ```
 
+## Testing
+
+To run the test, simply run `yarn test`. You
+may first need to run `yarn` to install the required development
+dependencies. (These dependencies are **not** required in a production
+environment, and facilitate only unit testing.)
+
 ## Contributing
 
-If you'd like to contribute, please fork this repository, change the branch typing `git switch dev`, make a new branch typing `git checkout -b branchName`, make your changes, make a push typing `git push -u origin branchName` and then submit a pull-request.
+If you'd like to contribute, please fork this repository, change the branch typing `git switch dev`, make a new branch typing `git checkout -b new-branch-name`, make your changes, make a push typing `git push -u origin new-branch-name` and then submit a pull-request.

@@ -9,7 +9,7 @@ import {
    DEFAULT_NUMBER_CHARACTERS,
 } from '../constants/defaults';
 
-type getCharactersProps = {
+export type getCharactersProps = {
    upperCase?: boolean;
    upperCaseCharacters?: string;
    lowerCase?: boolean;
@@ -20,7 +20,7 @@ type getCharactersProps = {
    numberCharacters?: string;
 };
 
-const getCharacters = (props?: getCharactersProps) => {
+export default function getCharacters(props?: getCharactersProps) {
    const hasUpperCases = props?.upperCase ?? DEFAULT_HAS_UPPERCASE_CHARACTERS;
    const hasLowerCases = props?.lowerCase ?? DEFAULT_HAS_LOWERCASE_CHARACTERS;
    const hasSpecials = props?.special ?? DEFAULT_HAS_SPECIAL_CHARACTERS;
@@ -58,6 +58,4 @@ const getCharacters = (props?: getCharactersProps) => {
    }
 
    return characters;
-};
-
-export default getCharacters;
+}

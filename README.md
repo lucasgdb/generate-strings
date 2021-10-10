@@ -38,7 +38,7 @@ or
 1. Generate random strings (default) like below:
 
 ```sh
-,9nlg4^]
+',9nlg4^]'
 ```
 
 2. Generate strings with mask like below:
@@ -135,13 +135,13 @@ const string = generateRandomPassword(settings);
 | excludeEqualChars   | Boolean | Excludes characters that are consecutive equals | true                         | true and false                                          |
 | firstCharType       | String  | Determines the type of first character          | 'random'                     | 'random', 'upperCase', 'lowerCase', 'special', 'number' |
 | upperCase           | Boolean | Determines whether it will be generated         | true                         | true and false                                          |
-| upperCaseCharacters | String  | UpperCase letters to be generate                | 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' | 'A-Z'                                                   |
+| upperCaseCharacters | String  | UpperCase letters to be generated               | 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' | 'A-Z'                                                   |
 | lowerCase           | Boolean | Determines whether it will be generated         | true                         | true and false                                          |
-| lowerCaseCharacters | String  | LowerCase letters to be generate                | 'abcdefghijklmnopqrstuvwxyz' | 'a-z'                                                   |
+| lowerCaseCharacters | String  | LowerCase letters to be generated               | 'abcdefghijklmnopqrstuvwxyz' | 'a-z'                                                   |
 | special             | Boolean | Determines whether it will be generated         | false                        | true and false                                          |
-| specialCharacters   | String  | Special letters to be generate                  | '!@#$%&\*()=[]{}'            | All special characters                                  |
+| specialCharacters   | String  | Special letters to be generated                 | '!@#$%&\*()=[]{}'            | All special characters                                  |
 | number              | Boolean | Determines whether it will be generated         | true                         | true and false                                          |
-| numberCharacters    | String  | NumberCharacters to be generate                 | '0123456789'                 | 0-9                                                     |
+| numberCharacters    | String  | Numbers to be generated                         | '0123456789'                 | 0-9                                                     |
 
 ## Examples
 

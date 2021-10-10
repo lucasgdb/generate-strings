@@ -19,7 +19,7 @@ npm install generate-strings --save
 
 ### In-browser
 
-Within your document:
+Within your document (each one for the desired function)
 
 ```html
 <script src="generateRandomString.min.js"></script>

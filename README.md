@@ -1,4 +1,4 @@
-# generate-strings dev branch
+# generate-strings branch
 
 # Generate random strings, strings with mask and strength passwords
 
@@ -57,7 +57,11 @@ or
 
 After you've included it into your project, using the module is straightforward:
 
-#### `generate({options})`
+#### `generateRandomString(options)`
+
+#### `generateRandomStringWithMask(options)`
+
+#### `generateRandomPassword(options)`
 
 ### Server-side
 

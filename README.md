@@ -5,6 +5,8 @@
 `generate-string` is a string generator that build random strings, strings with mask and passwords with password-strength tester.
 It is lightweight, extensible, has no dependencies, typescript support and can be used on the server with NodeJS or in-browser with JS.
 
+[![Build Status](https://travis-ci.com/lucasgdb/generate-strings.svg?branch=master)](https://travis-ci.com/lucasgdb/generate-strings)
+
 ## Installing
 
 ### Server-side (NodeJS)

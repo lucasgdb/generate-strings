@@ -99,7 +99,7 @@ function getFirstCharacter(props?: getFirstCharacterProps) {
          .reduce((str, char) => `${str}${char}`, '');
 
       if (characters === '') {
-         throw new Error('You must at least 1 character');
+         throw new Error('You must at least 1 character.');
       }
 
       const randomPosition = getRandomInteger(0, characters.length - 1);
@@ -108,7 +108,7 @@ function getFirstCharacter(props?: getFirstCharacterProps) {
 
    const characters = character[firstCharType];
    if (characters === '') {
-      throw new Error(`You must at least 1 character for ${firstCharType}`);
+      throw new Error(`You must at least 1 character for ${firstCharType}.`);
    }
 
    const randomPosition = getRandomInteger(0, characters.length - 1);
@@ -133,9 +133,14 @@ type getRandomPasswordProps = {
 };
 
 function getRandomPassword(props?: getRandomPasswordProps) {
+   const passwordLength = props?.passwordLength ?? DEFAULT_PASSWORD_LENGTH;
+
+   if (passwordLength <= 0) {
+      throw new Error('passwordLength must be greater than 0.');
+   }
+
    const possibleCharacters = getCharacters(props);
    const firstChar = getFirstCharacter(props);
-   const passwordLength = props?.passwordLength ?? DEFAULT_PASSWORD_LENGTH;
    const excludeEqualChars =
       props?.excludeEqualChars ?? DEFAULT_EXCLUDE_EQUAL_CHARS;
 

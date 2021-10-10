@@ -4,5 +4,5 @@ module.exports = {
       '@babel/plugin-proposal-export-default-from',
       '@babel/plugin-proposal-export-namespace-from',
    ],
-   ignore: [/node_modules/, /build/],
+   ignore: [/node_modules/, /dist/],
 };

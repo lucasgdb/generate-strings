@@ -1,6 +1,6 @@
 {
    "name": "generate-strings",
-   "version": "2.0.0",
+   "version": "2.0.2",
    "description": "Generate random strings, strings with mask and strength passwords with password-strength tester",
    "scripts": {
       "build": "webpack && tsc",

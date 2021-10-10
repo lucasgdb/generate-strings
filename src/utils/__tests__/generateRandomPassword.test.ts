@@ -21,14 +21,16 @@ describe('generateRandomPassword', () => {
    });
 
    it('should throw "You must set at least 1 character type" error', () => {
-      expect(() => {
-         generateRandomPassword({
-            upperCase: false,
-            lowerCase: false,
-            special: false,
-            number: false,
-         });
-      }).toThrowError('You must set at least 1 character type.');
+      const config = {
+         upperCase: false,
+         lowerCase: false,
+         special: false,
+         number: false,
+      };
+
+      expect(() => generateRandomPassword(config)).toThrowError(
+         'You must set at least 1 character type.'
+      );
    });
 
    it('should throw "You must at least 1 character" error', () => {

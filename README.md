@@ -1,4 +1,4 @@
-# generate-strings branch
+# generate-strings
 
 # Generate random strings, strings with mask and strength passwords
 

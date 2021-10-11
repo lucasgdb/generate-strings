@@ -17,7 +17,7 @@ const DEFAULT_LOWERCASE_MASK = '#';
 const DEFAULT_SPECIAL_MASK = '$';
 const DEFAULT_NUMBER_MASK = '%';
 
-type Config = {
+export type Config = {
    mask?: string;
    upperCaseMask?: string;
    lowerCaseMask?: string;
@@ -73,24 +73,27 @@ export function generateRandomStringWithMask(config?: Config) {
 
    const upperCaseCharacters =
       config?.upperCaseCharacters ?? DEFAULT_UPPERCASE_CHARACTERS;
-   const lowerCaseCharacters =
-      config?.lowerCaseCharacters ?? DEFAULT_LOWERCASE_CHARACTERS;
-   const specialCharacters =
-      config?.specialCharacters ?? DEFAULT_SPECIAL_CHARACTERS;
-   const numberCharacters =
-      config?.numberCharacters ?? DEFAULT_NUMBER_CHARACTERS;
 
    if (!upperCaseCharacters) {
       throw new Error('Set at least 1 character for upperCases');
    }
 
+   const lowerCaseCharacters =
+      config?.lowerCaseCharacters ?? DEFAULT_LOWERCASE_CHARACTERS;
+
    if (!lowerCaseCharacters) {
       throw new Error('Set at least 1 character for lowerCases');
    }
 
+   const specialCharacters =
+      config?.specialCharacters ?? DEFAULT_SPECIAL_CHARACTERS;
+
    if (!specialCharacters) {
       throw new Error('Set at least 1 character for specials');
    }
+
+   const numberCharacters =
+      config?.numberCharacters ?? DEFAULT_NUMBER_CHARACTERS;
 
    if (!numberCharacters) {
       throw new Error('Set at least 1 character for numbers');

@@ -163,7 +163,7 @@ function getRandomPassword(props?: getRandomPasswordProps) {
    return password;
 }
 
-type Config = {
+export type Config = {
    upperCase?: boolean;
    upperCaseCharacters?: string;
    lowerCase?: boolean;

@@ -2,7 +2,7 @@
 
 # Generate random strings, strings with mask and strength passwords
 
-`generate-string` is a string generator that build random strings, strings with mask and passwords with password-strength tester.
+`generate-strings` is a string generator that build random strings, strings with mask and passwords with password-strength tester.
 It is lightweight, extensible, has no dependencies, typescript support and can be used on the server with NodeJS or in-browser with JS.
 
 [![Build Status](https://travis-ci.com/lucasgdb/generate-strings.svg?branch=master)](https://travis-ci.com/lucasgdb/generate-strings)
@@ -15,6 +15,12 @@ From the command line:
 
 ```sh
 npm install generate-strings --save
+```
+
+or
+
+```sh
+yarn add generate-strings
 ```
 
 ### In-browser
@@ -30,24 +36,24 @@ Within your document (each one for the desired function)
 or
 
 ```html
-<script src="bundle.min.js"></script>
+<script src="generateStrings.min.js"></script>
 ```
 
 ## Features
 
-1. Generate random strings (default) like below:
+1. Generate random strings:
 
 ```sh
 ',9nlg4^]'
 ```
 
-2. Generate strings with mask like below:
+2. Generate strings with mask:
 
 ```sh
 '@#$%-@#$%-@#$%-@#$%' = 'Aa!0-Aa!0-Aa!0-Aa!0'
 ```
 
-3. Generate passwords with password-strength tester like below:
+3. Generate passwords with password-strength tester:
 
 ```sh
 { password: '2dt4hKIPO*=He', strength: 'high' }
@@ -67,9 +73,15 @@ After you've included it into your project, using the module is straightforward:
 
 ```javascript
 // require the module
-const { generateRandomString } = require('generate-strings');
+const {
+   generateRandomString,
+   generateRandomStringWithMask,
+   generateRandomPassword,
+} = require('generate-strings');
 
 console.log(generateRandomString());
+console.log(generateRandomStringWithMask());
+console.log(generateRandomPassword());
 ```
 
 ### In-browser
@@ -87,15 +99,10 @@ The module may be configured as follows:
 OBS: The settings shown below are the defaults.
 
 ```javascript
-const { generateRandomPassword } = require('generate-strings');
-
-// Pass a hash of settings into an object.
-const settings = {
-   // available settings will be shown below
-};
+import { generateRandomString } from 'generate-strings';
 
 // and then:
-const string = generateRandomPassword(settings);
+const randomString = generateRandomString();
 ```
 
 ### Available options for generateRandomString
@@ -103,13 +110,13 @@ const string = generateRandomPassword(settings);
 | Name                | Type    | Description                               | Default value                | Allowed values            |
 | ------------------- | ------- | ----------------------------------------- | ---------------------------- | ------------------------- |
 | stringLength        | Integer | Size of the string that will be generated | 8                            | 0-Number.MAX_SAFE_INTEGER |
-| upperCase           | Boolean | Determines whether it will be generated   | true                         | true and false            |
+| upperCase           | Boolean | Determines whether it will be generated   | true                         | true, false               |
 | upperCaseCharacters | String  | UpperCase letters to be generated         | 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' | 'A-Z'                     |
-| lowerCase           | Boolean | Determines whether it will be generated   | true                         | true and false            |
+| lowerCase           | Boolean | Determines whether it will be generated   | true                         | true, false               |
 | lowerCaseCharacters | String  | LowerCase letters to be generated         | 'abcdefghijklmnopqrstuvwxyz' | 'a-z'                     |
-| special             | Boolean | Determines whether it will be generated   | false                        | true and false            |
+| special             | Boolean | Determines whether it will be generated   | false                        | true, false               |
 | specialCharacters   | String  | Special letters to be generated           | '!@#$%&\*()=[]{}'            | All special characters    |
-| number              | Boolean | Determines whether it will be generated   | true                         | true and false            |
+| number              | Boolean | Determines whether it will be generated   | true                         | true, false               |
 | numberCharacters    | String  | Numbers to be generated                   | '0123456789'                 | 0-9                       |
 
 ### Available options for generateRandomStringWithMask
@@ -131,51 +138,64 @@ const string = generateRandomPassword(settings);
 | Name                | Type    | Description                                     | Default value                | Allowed values                                          |
 | ------------------- | ------- | ----------------------------------------------- | ---------------------------- | ------------------------------------------------------- |
 | passwordLength      | Integer | Size of the strings that will be generated      | 8                            | 0-Number.MAX_SAFE_INTEGER                               |
-| showStrength        | Boolean | Shows the password strength                     | false                        | true and false                                          |
-| excludeEqualChars   | Boolean | Excludes characters that are consecutive equals | true                         | true and false                                          |
+| showStrength        | Boolean | Shows the password strength                     | false                        | true, false                                             |
+| excludeEqualChars   | Boolean | Excludes characters that are consecutive equals | false                        | true, false                                             |
 | firstCharType       | String  | Determines the type of first character          | 'random'                     | 'random', 'upperCase', 'lowerCase', 'special', 'number' |
-| upperCase           | Boolean | Determines whether it will be generated         | true                         | true and false                                          |
+| upperCase           | Boolean | Determines whether it will be generated         | true                         | true, false                                             |
 | upperCaseCharacters | String  | UpperCase letters to be generated               | 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' | 'A-Z'                                                   |
-| lowerCase           | Boolean | Determines whether it will be generated         | true                         | true and false                                          |
+| lowerCase           | Boolean | Determines whether it will be generated         | true                         | true, false                                             |
 | lowerCaseCharacters | String  | LowerCase letters to be generated               | 'abcdefghijklmnopqrstuvwxyz' | 'a-z'                                                   |
-| special             | Boolean | Determines whether it will be generated         | false                        | true and false                                          |
+| special             | Boolean | Determines whether it will be generated         | false                        | true, false                                             |
 | specialCharacters   | String  | Special letters to be generated                 | '!@#$%&\*()=[]{}'            | All special characters                                  |
-| number              | Boolean | Determines whether it will be generated         | true                         | true and false                                          |
+| number              | Boolean | Determines whether it will be generated         | true                         | true, false                                             |
 | numberCharacters    | String  | Numbers to be generated                         | '0123456789'                 | 0-9                                                     |
 
 ## Examples
 
-```javascript
-const { generateRandomPassword } = require('generate-strings');
+```typescript
+import {
+   generateRandomString,
+   generateRandomStringProps,
+} from 'generate-strings';
 
-const settings = {
+const settings: generateRandomStringProps = {
+   stringLength: 15,
+   special: true,
+};
+
+const randomStringWithMask = generateRandomString(settings); // will return a string like: bov$Ia@}Rr8gzU*
+```
+
+```typescript
+import {
+   generateRandomStringWithMask,
+   generateRandomStringWithMaskProps,
+} from 'generate-strings';
+
+const settings: generateRandomStringWithMaskProps = {
+   upperCaseMask: '&',
+   mask: '####_####%@hotmail.com',
+};
+
+const randomStringWithMask = generateRandomStringWithMask(settings); // will return a string like: ekts_raqm1@hotmail.com
+```
+
+```typescript
+import {
+   generateRandomPassword,
+   generateRandomPasswordProps,
+} from 'generate-strings';
+
+const settings: generateRandomPasswordProps = {
    passwordLength: 12,
    special: true,
    showStrength: true,
    excludeEqualChars: true,
 };
 
-const pass = generateRandomPassword(settings); // will return a random object like: { password: 'T2$he{Yk6pvf', strength: 'high' }
-```
-
-```javascript
-const { generateRandomStringWithMask } = require('generate-strings');
-
-const settings = {
-   upperCaseMask: '&',
-   mask: '####_####%@hotmail.com',
-};
-
-const pass = generateRandomStringWithMask(settings); // will return a random string like: ekts_raqm1@hotmail.com
+const randomPassword = generateRandomPassword(settings); // will return a object like: { password: 'T2$he{Yk6pvf', strength: 'high' }
 ```
 
 ## Testing
 
-To run the test, simply run `yarn test`. You
-may first need to run `yarn` to install the required development
-dependencies. (These dependencies are **not** required in a production
-environment, and facilitate only unit testing.)
-
-## Contributing
-
-If you'd like to contribute, please fork this repository, change the branch typing `git switch dev`, make a new branch typing `git checkout -b new-branch-name`, make your changes, make a push typing `git push -u origin new-branch-name` and then submit a pull-request.
+To test the application, run `yarn test`. You may first need to run `yarn` to install the required development dependencies. (These dependencies are **not** required in a production environment, and facilitate only unit testing.)

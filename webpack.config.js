@@ -3,7 +3,10 @@ const path = require('path');
 module.exports = {
    mode: 'production',
    entry: {
-      all: './src/index.ts',
+      generateStrings: {
+         import: './src/index.ts',
+         filename: 'generateStrings.min.js',
+      },
 
       generateRandomPassword: {
          import: './src/utils/generateRandomPassword.ts',
@@ -20,7 +23,6 @@ module.exports = {
    },
    output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: 'bundle.min.js',
       libraryTarget: 'umd',
       globalObject: 'this',
       clean: true,

@@ -23,6 +23,12 @@ or
 yarn add generate-strings
 ```
 
+or
+
+```sh
+pnpm add generate-strings
+```
+
 ### In-browser
 
 Within your document (each one for the desired function)
@@ -43,19 +49,19 @@ or
 
 1. Generate random strings:
 
-```sh
+```ts
 ',9nlg4^]'
 ```
 
 2. Generate strings with mask:
 
-```sh
+```ts
 '@#$%-@#$%-@#$%-@#$%' = 'Aa!0-Aa!0-Aa!0-Aa!0'
 ```
 
 3. Generate passwords with password-strength tester:
 
-```sh
+```ts
 { password: '2dt4hKIPO*=He', strength: 'high' }
 ```
 
@@ -71,7 +77,7 @@ After you've included it into your project, using the module is straightforward:
 
 ### Server-side
 
-```javascript
+```ts
 // require the module
 const {
    generateRandomString,
@@ -86,7 +92,7 @@ console.log(generateRandomPassword());
 
 ### In-browser
 
-```javascript
+```ts
 // in the browser, including the script will make the function available.
 console.log(generateRandomString());
 console.log(generateRandomStringWithMask());
@@ -98,7 +104,7 @@ console.log(generateRandomPassword());
 The module may be configured as follows:
 OBS: The settings shown below are the defaults.
 
-```javascript
+```ts
 import { generateRandomString } from 'generate-strings';
 
 // and then:
@@ -152,7 +158,7 @@ const randomString = generateRandomString();
 
 ## Examples
 
-```typescript
+```ts
 import {
    generateRandomString,
    generateRandomStringProps,
@@ -166,7 +172,7 @@ const settings: generateRandomStringProps = {
 const randomStringWithMask = generateRandomString(settings); // will return a string like: bov$Ia@}Rr8gzU*
 ```
 
-```typescript
+```ts
 import {
    generateRandomStringWithMask,
    generateRandomStringWithMaskProps,
@@ -180,7 +186,7 @@ const settings: generateRandomStringWithMaskProps = {
 const randomStringWithMask = generateRandomStringWithMask(settings); // will return a string like: ekts_raqm1@hotmail.com
 ```
 
-```typescript
+```ts
 import {
    generateRandomPassword,
    generateRandomPasswordProps,

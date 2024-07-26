@@ -4,6 +4,6 @@ If you'd like to contribute, please fork this repository, change the branch typi
 
 -  git switch dev
 -  git checkout -b new-branch-name
--  make your changes
--  git push -u origin new-branch-name
+-  make your changes and commit them
+-  git push -u origin feat/new-branch-name
 -  open a PR :D

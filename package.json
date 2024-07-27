@@ -41,5 +41,8 @@
   "bugs": {
     "url": "https://github.com/lucasgdb/generate-strings/issues"
   },
-  "homepage": "https://github.com/lucasgdb/generate-strings#readme"
+  "homepage": "https://github.com/lucasgdb/generate-strings#readme",
+  "engines": {
+    "node": ">=20.16"
+  }
 }

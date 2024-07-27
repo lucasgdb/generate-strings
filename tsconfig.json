@@ -1,15 +1,17 @@
 {
-   "compilerOptions": {
-      "noImplicitAny": true,
-      "noImplicitThis": true,
-      "strictNullChecks": true,
-      "noEmit": false,
-      "emitDeclarationOnly": true,
-      "declaration": true,
-      "allowJs": true,
-      "esModuleInterop": true,
-      "declarationDir": "dist/@types"
-   },
-   "include": ["src"],
-   "exclude": ["dist", "node_modules"]
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "noEmit": false,
+    "emitDeclarationOnly": true,
+    "declaration": true,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "moduleResolution": "Bundler",
+    "module": "ESNext",
+    "declarationDir": "dist/@types",
+    "types": ["node", "vitest/globals"]
+  },
+  "include": ["src"]
 }

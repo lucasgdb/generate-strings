@@ -7,14 +7,14 @@
   "scripts": {
     "build": "webpack && tsc",
     "test": "vitest run",
+    "check": "biome check --write .",
+    "lint": "biome lint --write .",
     "format": "biome format --write ."
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
     "@swc/core": "^1.7.2",
     "@types/node": "^20.14.12",
-    "@typescript-eslint/eslint-plugin": "^5.62.0",
-    "@typescript-eslint/parser": "^5.62.0",
     "core-js": "^3.37.1",
     "swc-loader": "^0.2.6",
     "typescript": "^5.5.4",

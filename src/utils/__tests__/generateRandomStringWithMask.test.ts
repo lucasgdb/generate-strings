@@ -1,4 +1,4 @@
-import { type generateRandomStringWithMaskProps, generateRandomStringWithMask } from "../generateRandomStringWithMask";
+import { generateRandomStringWithMask, type generateRandomStringWithMaskProps } from "../generateRandomStringWithMask";
 
 describe("generateRandomStringWithMask", () => {
   it('should throw "Mask wrong. Please put something like "@#$%-@#$%-#@$%"" error', () => {

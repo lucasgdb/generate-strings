@@ -13,7 +13,8 @@
     "enabled": true,
     "indentWidth": 2,
     "indentStyle": "space",
-    "lineWidth": 120
+    "lineWidth": 120,
+    "formatWithErrors": true
   },
   "files": {
     "ignore": ["dist/**/*"]

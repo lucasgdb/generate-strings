@@ -1,4 +1,4 @@
-import { type getCharactersProps, getCharacters } from "../getCharacters";
+import { getCharacters, type getCharactersProps } from "../getCharacters";
 
 describe("getCharacters", () => {
   test("getCharacters without props", () => {
